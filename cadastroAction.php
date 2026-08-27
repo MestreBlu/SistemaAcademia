@@ -85,7 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 } else {
-    header('Location: cadastro.html');
+    header('Location: cadastro.php');
     exit;
 }
 ?>
@@ -185,7 +185,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="card-resposta">
         <h2><?php echo $mensagem_titulo; ?></h2>
         <p><?php echo $mensagem_corpo; ?></p>
-        <a href="cadastro.html" class="btn-voltar">Voltar ao Formulário</a>
+        <a href="cadastro.php" class="btn-voltar">Voltar ao Formulário</a>
     </div>
 
 </body>
