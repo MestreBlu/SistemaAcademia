@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gym Tech - Cadastro de Aluno</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <div class="logo">Gym Tech</div>
+    <a href="login.html" class="link-login">Área Restrita (Login)</a>
+  </nav>
+
+  <section class="hero">
+    <h1>Gestão Digital Inteligente para <span>Sua Saúde</span></h1>
+    <p>Painel administrativo para controle de matrículas, gerenciamento de alunos e monitoramento de desempenho da plataforma.</p>
+  </section>
+
+  <div class="container-cadastro">
+    <h2>Cadastrar Novo Aluno</h2>
+    <div class="instrucao">Preencha todos os campos obrigatórios (*) para validar o plano.</div>
+
+    <form action="cadastroAction.php" method="POST">
+      <h3>1. Credenciais de Acesso</h3>
+      <div class="grupo-campo">
+        <label>Nome Completo *</label>
+        <input type="text" name="nome" required placeholder="Nome do matriculado">
+      </div>
+      <div class="grupo-campo">
+        <label>E-mail Corporativo ou Pessoal *</label>
+        <input type="email" name="email" required placeholder="nome@provedor.com">
+      </div>
+      <div class="linha-dupla">
+        <div class="grupo-campo">
+          <label>Senha de Acesso *</label>
+          <input type="password" name="senha" required placeholder="Crie uma senha de acesso">
+        </div>
+        <div class="grupo-campo">
+          <label>Telefone Residencial</label>
+          <input type="text" name="telefone" placeholder="(00) 0000-0000">
+        </div>
+      </div>
+
+      <h3>2. Ficha de Matrícula</h3>
+      <div class="linha-dupla">
+        <div class="grupo-campo">
+          <label>Data de Nascimento</label>
+          <input type="date" name="data_nascimento">
+        </div>
+        <div class="grupo-campo">
+          <label>CPF *</label>
+          <input type="text" id="campo-cpf" name="cpf" placeholder="000.000.000-00" required>
+        </div>
+      </div>
+      <div class="grupo-campo">
+        <label>Endereço Residencial Completo</label>
+        <input type="text" name="endereco" placeholder="Rua, Número, Bloco, Bairro">
+      </div>
+      <div class="grupo-campo">
+        <label>Objetivo com os Treinos</label>
+        <input type="text" name="objetivo" placeholder="Ex: Hipertrofia, Redução de Percentual de Gordura">
+      </div>
+      <div class="linha-dupla">
+        <div class="grupo-campo">
+          <label>Plano Vinculado *</label>
+          <select name="plano" required>
+            <option value="">Escolha um plano...</option>
+            <option value="Mensal">Plano Mensal</option>
+            <option value="Trimestral">Plano Trimestral</option>
+            <option value="Anual">Plano Anual</option>
+          </select>
+        </div>
+        <div class="grupo-campo">
+          <label>Peso Corporal Inicial (kg)</label>
+          <input type="number" step="0.01" name="peso_atual" placeholder="00.00">
+        </div>
+      </div>
+      <div class="linha-dupla">
+        <div class="grupo-campo">
+          <label>Altura (m)</label>
+          <input type="number" step="0.01" name="altura" placeholder="1.75">
+        </div>
+        <div class="grupo-campo">
+          <label>Celular / WhatsApp</label>
+          <input type="text" name="celular" placeholder="(00) 00000-0000">
+        </div>
+      </div>
+
+      <button type="submit">Efetivar Matrícula no Sistema</button>
+    </form>
+  </div>
+
+  <script>
+    const inputCpf = document.getElementById('campo-cpf');
+    inputCpf.addEventListener('input', function(e) {
+      let valor = e.target.value.replace(/\D/g, "");
+      if (valor.length > 11) valor = valor.slice(0, 11);
+      if (valor.length > 9) {
+        valor = valor.replace(/^(\d{3})(\d{3})(\d{3})(\d{2})$/, "$1.$2.$3-$4");
+      } else if (valor.length > 6) {
+        valor = valor.replace(/^(\d{3})(\d{3})(\d{3})$/, "$1.$2.$3");
+      } else if (valor.length > 3) {
+        valor = valor.replace(/^(\d{3})(\d{3})$/, "$1.$2");
+      }
+      e.target.value = valor;
+    });
+  </script>
+</body>
+</html>
