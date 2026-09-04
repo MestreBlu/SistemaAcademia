@@ -29,7 +29,7 @@
     <form action="atualizarAction.php" method="POST">
       <input type="hidden" name="id" value="">
 
-      <h3>1. Credenciais de Acesso</h3>
+      <h3>1. Dados Pessoais</h3>
       <div class="grupo-campo">
         <label>Nome Completo *</label>
         <input type="text" name="nome" required placeholder="Nome do matriculado">
@@ -38,15 +38,9 @@
         <label>E-mail *</label>
         <input type="email" name="email" required placeholder="nome@provedor.com">
       </div>
-      <div class="linha-dupla">
-        <div class="grupo-campo">
-          <label>Nova Senha (deixe em branco para manter)</label>
-          <input type="password" name="senha" placeholder="Somente se quiser trocar">
-        </div>
-        <div class="grupo-campo">
-          <label>Telefone Residencial</label>
-          <input type="text" name="telefone" placeholder="(00) 0000-0000">
-        </div>
+      <div class="grupo-campo">
+        <label>Telefone Residencial</label>
+        <input type="text" name="telefone" placeholder="(00) 0000-0000">
       </div>
 
       <h3>2. Ficha de Matrícula</h3>
