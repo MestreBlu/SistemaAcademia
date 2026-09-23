@@ -8,18 +8,22 @@
 </head>
 <body>
   <nav>
-    <div class="logo">Gym Tech</div>
+    <div class="logo">
+      <img src="logo_da_Gym_Tech.png" alt="Gym Tech" class="logo-img">
+    </div>
     <a href="cadastro.html" class="link-login">Cadastrar Aluno</a>
   </nav>
 
   <div class="card-login">
-    <div class="logo-login">Gym <span>Tech</span></div>
+    <img src="logo_da_Gym_Tech.png" alt="Gym Tech" class="logo-login-img">
     <div class="instrucao">Acesse o painel administrativo com suas credenciais.</div>
+
+    <div id="alerta-erro" class="alerta alerta-erro" style="display:none;"></div>
 
     <form action="loginAction.php" method="POST">
       <div class="grupo-campo">
-        <label>E-mail *</label>
-        <input type="email" name="email" required placeholder="nome@provedor.com">
+        <label>Usuário *</label>
+        <input type="text" name="usuario" required placeholder="Seu usuário de acesso" autofocus>
       </div>
       <div class="grupo-campo">
         <label>Senha *</label>
@@ -28,5 +32,19 @@
       <button type="submit">Entrar no Sistema</button>
     </form>
   </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const erro = params.get('erro');
+    const alerta = document.getElementById('alerta-erro');
+    const mensagens = {
+      'invalido': 'Usuário ou senha inválidos. Verifique suas credenciais e tente novamente.',
+      'campos_vazios': 'Preencha todos os campos para entrar no sistema.'
+    };
+    if (erro && mensagens[erro]) {
+      alerta.textContent = mensagens[erro];
+      alerta.style.display = 'block';
+    }
+  </script>
 </body>
 </html>

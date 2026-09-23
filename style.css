@@ -110,3 +110,81 @@ button:hover { background-color: var(--roxo-hover); }
 .card-login { max-width: 420px; }
 .logo-login { text-align: center; font-size: 28px; font-weight: 800; margin-bottom: 5px; }
 .logo-login span { color: var(--roxo-neon); }
+
+/* ===== CORREÇÃO DO LOGO - PROPORÇÃO ===== */
+
+/* Logo na navbar: altura fixa, não estoura a barra */
+nav .logo { display: flex; align-items: center; gap: 10px; }
+.logo-img {
+  height: 40px;          /* altura controlada */
+  width: auto;           /* mantém proporção */
+  display: block;
+}
+
+/* Logo no card de login: largura máxima, centralizado */
+.logo-login-img {
+  display: block;
+  margin: 0 auto 15px;   /* centraliza e dá respiro */
+  max-width: 180px;      /* nunca maior que isso */
+  height: auto;          /* mantém proporção */
+}
+
+/* ===== GYM TECH - AJUSTE DO LOGO ===== */
+nav .logo { display: flex; align-items: center; gap: 10px; }
+
+.logo-img {
+  height: 40px;
+  width: auto;
+  display: block;
+}
+
+.logo-login-img {
+  display: block;
+  margin: 0 auto 15px;
+  max-width: 140px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(160, 70, 255, 0.3);
+}
+
+/* ===== GYM TECH - POLIMENTO FINAL ===== */
+
+/* 1. Logo do card um pouco menor + texto com respiro */
+.logo-login-img {
+  max-width: 110px;
+  margin-bottom: 20px;
+}
+
+/* 2. Navbar com mais respiro interno (botão não fica colado) */
+nav {
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
+/* 3. Inputs com borda padrão consistente (cinza → roxa no foco) */
+.card-login input {
+  border: 1px solid var(--borda);
+}
+.card-login input:focus {
+  border-color: var(--roxo-neon);
+  box-shadow: 0 0 5px rgba(138, 43, 226, 0.3);
+}
+
+/* 4. Texto de instrução com mais distância */
+.card-login .instrucao {
+  margin-top: 8px;
+  margin-bottom: 25px;
+}
+
+/* ===== GYM TECH - BOTÃO VOLTAR AO PAINEL ===== */
+.btn-voltar {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  border: 1px solid var(--roxo-neon);
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: 0.3s;
+  margin-right: 8px;
+}
+.btn-voltar:hover { background-color: var(--roxo-neon); }
