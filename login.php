@@ -1,4 +1,5 @@
 <?php
+// Lê o parâmetro de erro enviado pelo loginAction.php
 $erro = $_GET['erro'] ?? '';
 $mensagemErro = '';
 
@@ -61,4 +62,3 @@ switch ($erro) {
   </div>
 </body>
 </html>
-
