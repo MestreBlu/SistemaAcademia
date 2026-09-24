@@ -16,7 +16,7 @@ if (!isset($_SESSION['usuario_id']) || !in_array($_SESSION['usuario_tipo'], $per
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gym Tech - Cadastro de Aluno</title>
+    <title>Gym Tech - Atualizar Aluno</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -26,23 +26,30 @@ if (!isset($_SESSION['usuario_id']) || !in_array($_SESSION['usuario_tipo'], $per
         <a href="logout.php" class="link-login">Sair, <?php echo htmlspecialchars($_SESSION['usuario_tipo']); ?></a>
     </nav>
 
-    <section class="hero">
-        <h1>Gestão Digital Inteligente para <span>Sua Saúde</span></h1>
-        <p>Painel administrativo para controle de matrículas, gerenhamento de alunos e monitoramento de desempenho da plataforma.</p>
-    </section>
-
     <div class="container-cadastro">
-        <h2>Cadastrar Novo Aluno</h2>
-        <div class="instrucao">Preencha todos os campos obrigatórios (*) para validar o plano.</div>
+        <h2>Atualizar Cadastro de Aluno</h2>
+        <div class="instrucao">Busque o aluno pelo CPF ou e-mail e edite os dados desejados.</div>
 
-        <form action="cadastroAction.php" method="POST">
+        <!-- Busca -->
+        <form action="atualizar.php" method="GET">
+            <div class="grupo-campo">
+                <label>Buscar por CPF ou E-mail</label>
+                <input type="text" name="busca" placeholder="000.000.000-00 ou nome@provedor.com" required>
+            </div>
+            <button type="submit">Buscar Aluno</button>
+        </form>
+
+        <!-- Formulário de edição (preenchido pelo backend) -->
+        <form action="atualizarAction.php" method="POST">
+            <input type="hidden" name="id" value="">
+
             <h3>1. Dados Pessoais</h3>
             <div class="grupo-campo">
                 <label>Nome Completo *</label>
                 <input type="text" name="nome" required placeholder="Nome do matriculado">
             </div>
             <div class="grupo-campo">
-                <label>E-mail Corporativo ou Pessoal *</label>
+                <label>E-mail *</label>
                 <input type="email" name="email" required placeholder="nome@provedor.com">
             </div>
             <div class="grupo-campo">
@@ -80,7 +87,7 @@ if (!isset($_SESSION['usuario_id']) || !in_array($_SESSION['usuario_tipo'], $per
                     </select>
                 </div>
                 <div class="grupo-campo">
-                    <label>Peso Corporal Inicial (kg)</label>
+                    <label>Peso Corporal (kg)</label>
                     <input type="number" step="0.01" name="peso_atual" placeholder="00.00">
                 </div>
             </div>
@@ -95,7 +102,7 @@ if (!isset($_SESSION['usuario_id']) || !in_array($_SESSION['usuario_tipo'], $per
                 </div>
             </div>
 
-            <button type="submit">Efetivar Matrícula no Sistema</button>
+            <button type="submit">Salvar Alterações</button>
         </form>
     </div>
 

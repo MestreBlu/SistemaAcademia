@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Verifica se o usuário existe e se a senha está correta
         if ($dadosUsuario && $senha === $dadosUsuario['senha']) {
-            
+
             // Regenera o ID da sessão por segurança contra Session Fixation
             session_regenerate_id(true);
 
@@ -38,20 +38,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 header('Location: painel_professor.php');
             } elseif ($dadosUsuario['tipo'] === 'adm') {
                 header('Location: painel_adm.php');
-            } 
+            }
             exit;
-
         } else {
             // Credenciais inválidas
             header('Location: login.php?erro=invalido');
             exit;
         }
-
     } catch (PDOException $e) {
         // Tratar erros de banco de dados
         die("Erro ao processar login: " . $e->getMessage());
     }
-
 } else {
     // Se o acesso não for via POST, redireciona para a tela de login
     header('Location: login.php');
